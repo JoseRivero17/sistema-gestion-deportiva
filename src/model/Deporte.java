@@ -2,35 +2,35 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import observer.IObserver;
 
-public class Deporte {
-    private String nombre;
-    private List<Disciplina> disciplinas;
+public abstract class Deporte implements IObserver {
+    private String nombreDeporte;
+    private List<Usuario> participantes;
 
-    public Deporte(String nombre) {
-        this.nombre = nombre;
-        this.disciplinas = new ArrayList<>();
+    public Deporte(String nombreDeporte) {
+        this.nombreDeporte = nombreDeporte;
+        this.participantes = new ArrayList<>();
     }
 
-    public void agregarDisciplina(Disciplina disciplina) {
-        if (!disciplinas.contains(disciplina)) {
-            disciplinas.add(disciplina);
-        }
+    public String getNombreDeporte() {
+        return nombreDeporte;
     }
 
-    public void quitarDisciplina(Disciplina disciplina) {
-        disciplinas.remove(disciplina);
+    public void setNombreDeporte(String nombreDeporte) {
+        this.nombreDeporte = nombreDeporte;
     }
 
-    public String getNombre() {
-        return nombre;
+    public List<Usuario> getParticipantes() {
+        return participantes;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void agregarParticipante(Usuario usuario) {
+        participantes.add(usuario);
     }
 
-    public List<Disciplina> getDisciplinas() {
-        return disciplinas;
+    @Override
+    public void update(String notification) {
+        System.out.println("Notificación recibida en " + nombreDeporte + ": " + notification);
     }
 }

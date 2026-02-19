@@ -2,20 +2,15 @@ package model;
 
 public class Usuario {
     private String nombre;
-    private String DNI;
+    private String nombreUsuario;
+    private String contrasenia;
+    private String dispositivosNotificacion;
     private String email;
 
-    public Usuario(String nombre, String DNI, String email) {
+    public Usuario(String nombre, String nombreUsuario, String contrasenia, String email) {
         this.nombre = nombre;
-        this.DNI = DNI;
-        this.email = email;
-    }
-
-    public void establecerNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void cambiarEmail(String email) {
+        this.nombreUsuario = nombreUsuario;
+        this.contrasenia = contrasenia;
         this.email = email;
     }
 
@@ -23,15 +18,39 @@ public class Usuario {
         return nombre;
     }
 
-    public String getDNI() {
-        return DNI;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public String getDispositivosNotificacion() {
+        return dispositivosNotificacion;
+    }
+
+    public void setDispositivosNotificacion(String dispositivosNotificacion) {
+        this.dispositivosNotificacion = dispositivosNotificacion;
     }
 
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
